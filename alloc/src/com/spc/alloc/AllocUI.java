@@ -1,4 +1,4 @@
-package com.example.alloc;
+package com.spc.alloc;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
