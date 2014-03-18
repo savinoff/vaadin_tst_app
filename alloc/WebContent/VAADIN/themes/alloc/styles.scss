@@ -1,0 +1,9 @@
+@import "addons.scss";
+@import "alloc.scss";
+
+/* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
+/* The actual styles should be defined in alloc.scss */
+.alloc {
+  @include addons;
+  @include alloc;
+}

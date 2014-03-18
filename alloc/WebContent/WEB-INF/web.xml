@@ -14,7 +14,7 @@
 			<description>
 			Vaadin UI class to use</description>
 			<param-name>UI</param-name>
-			<param-value>com.example.alloc.AllocUI</param-value>
+			<param-value>com.spc.alloc.AllocUI</param-value>
 		</init-param>
 		<init-param>
 			<description>
@@ -31,5 +31,4 @@
 		<servlet-name>Alloc Application</servlet-name>
 		<url-pattern>/VAADIN/*</url-pattern>
 	</servlet-mapping>
-	
 </web-app>
