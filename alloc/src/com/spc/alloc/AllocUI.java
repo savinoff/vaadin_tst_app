@@ -24,25 +24,3 @@ public class AllocUI extends UI {
 	}
 
 }
-
-
-//@SuppressWarnings("serial")
-//@Theme("alloc")
-//public class AllocUI extends UI {
-//
-//	@Override
-//	protected void init(VaadinRequest request) {
-//		final VerticalLayout layout = new VerticalLayout();
-//		layout.setMargin(true);
-//		setContent(layout);
-//
-//		Button button = new Button("Click Me");
-//		button.addClickListener(new Button.ClickListener() {
-//			public void buttonClick(ClickEvent event) {
-//				layout.addComponent(new Label("Thank you for clicking"));
-//			}
-//		});
-//		layout.addComponent(button);
-//	}
-//
-//}
