@@ -13,7 +13,7 @@ public class LoginPresenter implements LoginViewHandler{
 	}
 	
 	@Override
-	public void Login () {
+	public void login () {
 		TextField txtUsername = view.getTxtUsername();
 		TextField txtPassword = view.getTxtPassword();
 		
