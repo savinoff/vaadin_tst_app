@@ -1,4 +1,4 @@
-package com.spc.alloc;
+package auser;
 
 import com.vaadin.server.ServiceException;
 import com.vaadin.ui.TextField;

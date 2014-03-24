@@ -1,4 +1,4 @@
-package com.spc.alloc;
+package auser;
 
 public interface LoginViewHandler {
 	void login();

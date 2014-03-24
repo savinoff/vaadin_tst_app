@@ -1,4 +1,4 @@
-package com.spc.alloc;
+package auser;
 
 public class User {
 	public String username;

@@ -1,7 +1,6 @@
-package com.spc.alloc;
+package auser;
 
 import com.vaadin.server.ServiceException;
-import com.spc.alloc.User;
 
 public class UserServiceDummy implements UserService{
 	@Override

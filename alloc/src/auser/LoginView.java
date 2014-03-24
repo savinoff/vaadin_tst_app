@@ -1,4 +1,4 @@
-package com.spc.alloc;
+package auser;
 
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
