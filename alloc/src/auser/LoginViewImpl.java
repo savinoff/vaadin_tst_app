@@ -1,12 +1,15 @@
 package auser;
 
 
+import java.util.Collection;
+
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Window;
 
 public class LoginViewImpl extends VerticalLayout implements LoginView{
 
@@ -14,6 +17,8 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 	private LoginViewHandler handler;
 	private TextField txtUsername;
 	private TextField txtPassword;
+	
+	private Window subWindow;
 	
 	private Button btnLogin;
 	
@@ -24,6 +29,10 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 	
 	@Override
 	public void init(){
+		subWindow = new Window("Authoruzation");
+		Collection<Window> mainwindow = UI.getCurrent().getWindows();
+		
+		
 		txtUsername = new TextField("Username");
 		addComponent(txtUsername);
 		txtPassword = new TextField("Password");
