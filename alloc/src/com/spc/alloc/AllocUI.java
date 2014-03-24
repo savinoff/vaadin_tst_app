@@ -14,23 +14,33 @@ import com.vaadin.ui.UI;
 @Theme("alloc")
 public class AllocUI extends UI {
 	private PageLayout pageLayout;
+	private Navigator navigator;
 
 	@Override
 	protected void init(VaadinRequest request) {
 		
+		UI.getCurrent().getSession().setAttribute("isConnected", false);
 		getPage().setTitle("Vaadin alloc interface");
-		Navigator navigator = new Navigator(this, this);
+		navigator = new Navigator(this, this);
 		LoginView loginView = new LoginViewImpl();
 		LoginPresenter loginPresenter = new LoginPresenter(loginView, new UserServiceDummy());
 		loginView.setHandler(loginPresenter);
 		loginView.init();
 		navigator.addView("login", loginView);
-		setNavigator(navigator);
-		navigator.navigateTo("login");
+		
 		
 		pageLayout = new PageLayout();
 		navigator.addView("", pageLayout);
 		//setContent(pageLayout);
+		
+		setNavigator(navigator);
+		
+		if ((Boolean) UI.getCurrent().getSession().getAttribute("isConnected") == false) {
+			navigator.navigateTo("login");
+		} else {
+			navigator.navigateTo("");
+		}
+		
 	}
 
 	public PageLayout getPageLayout() {
@@ -39,6 +49,10 @@ public class AllocUI extends UI {
 
 	public static AllocUI getCurrent() {
 		return (AllocUI) UI.getCurrent();
+	}
+	
+	public Navigator getNavigator() {
+		return navigator;
 	}
 
 }

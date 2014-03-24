@@ -1,10 +1,9 @@
 package auser;
 
 
-import java.util.Collection;
-
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -17,6 +16,7 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 	private LoginViewHandler handler;
 	private TextField txtUsername;
 	private TextField txtPassword;
+
 	
 	private Window subWindow;
 	
@@ -29,26 +29,40 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 	
 	@Override
 	public void init(){
-		subWindow = new Window("Authoruzation");
-		Collection<Window> mainwindow = UI.getCurrent().getWindows();
+		subWindow = new Window("Авторизация");
+		txtUsername = new TextField("Имя пользователя"); 
+		// TODO: Достать, если есть из сессии имя пользователя
+		txtUsername.setValue((String) UI.getCurrent().getSession().getAttribute("Username"));
+		txtPassword = new TextField("Пароль");
 		
-		
-		txtUsername = new TextField("Username");
-		addComponent(txtUsername);
-		txtPassword = new TextField("Password");
-		addComponent(txtPassword);
+		FormLayout subWindowLayout = new FormLayout();
+		subWindowLayout.addComponent(txtUsername);
+		subWindowLayout.addComponent(txtPassword);
+		subWindow.setContent(subWindowLayout);
 		
 		btnLogin = new Button("Login");
-		addComponent(btnLogin);
+		subWindowLayout.addComponent(btnLogin);
 		btnLogin.addClickListener(new Button.ClickListener() {
 			
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
+				// TODO: Записать в сессию имя пользователя
+				UI.getCurrent().getSession().setAttribute("Username", txtUsername.getValue());
+				subWindow.close();
 				handler.login();
 			}
 		});
+		
+		subWindow.center();
+		//subWindow.setClosable(false);
+		subWindow.setDraggable(false);
+		subWindow.setResizable(false);
+		subWindow.setHeight("150px");
+		subWindow.setWidth("350px");
+		UI.getCurrent().addWindow(subWindow);
+		
 		
 	}
 	@Override
@@ -62,7 +76,10 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 	
 	@Override
 	public void enter (ViewChangeListener.ViewChangeEvent event) {
-		
+		if ((Boolean) UI.getCurrent().getSession().getAttribute("isConnected") == false) {
+			init();
+		}
+		UI.getCurrent().getSession().setAttribute("isConnected", true);
 	}
 	@Override
 	public Button getBtnLogin () {
