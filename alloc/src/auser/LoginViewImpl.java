@@ -61,7 +61,7 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 	}
 	@Override
 	public void afterSuccessfulLogin () {
-		UI.getCurrent().getNavigator().navigateTo("only-for-signed-in-users");
+		UI.getCurrent().getNavigator().navigateTo("");
 	}
 	
 	

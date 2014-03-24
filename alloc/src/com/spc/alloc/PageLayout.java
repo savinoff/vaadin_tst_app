@@ -1,8 +1,11 @@
 package com.spc.alloc;
 
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.VerticalLayout;
 
-public class PageLayout extends VerticalLayout {
+public class PageLayout extends VerticalLayout implements View{
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,6 +34,12 @@ public class PageLayout extends VerticalLayout {
 
 	public FooterLayout getFooterLayout() {
 		return footerLayout;
+	}
+
+	@Override
+	public void enter(ViewChangeEvent event) {
+		Notification.show("ViewChangeEvent event");
+		
 	}
 
 }

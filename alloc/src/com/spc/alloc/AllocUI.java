@@ -18,17 +18,19 @@ public class AllocUI extends UI {
 	@Override
 	protected void init(VaadinRequest request) {
 		
+		getPage().setTitle("Vaadin alloc interface");
 		Navigator navigator = new Navigator(this, this);
 		LoginView loginView = new LoginViewImpl();
 		LoginPresenter loginPresenter = new LoginPresenter(loginView, new UserServiceDummy());
 		loginView.setHandler(loginPresenter);
 		loginView.init();
-		navigator.addView("", loginView);
+		navigator.addView("login", loginView);
 		setNavigator(navigator);
-		navigator.navigateTo("");
+		navigator.navigateTo("login");
 		
 		pageLayout = new PageLayout();
-		setContent(pageLayout);
+		navigator.addView("", pageLayout);
+		//setContent(pageLayout);
 	}
 
 	public PageLayout getPageLayout() {
