@@ -15,17 +15,19 @@ public class PageLayout extends VerticalLayout implements View{
 	private FooterLayout footerLayout;
 
 	public PageLayout() {
-		setMargin(true);
-		headerLayout = new HeaderLayout();
-		addComponent(headerLayout);
-		bodyLayout = new BodyLayout();
-		addComponent(bodyLayout);
-		footerLayout = new FooterLayout();
-		addComponent(footerLayout);
-		
 		if ((Boolean) UI.getCurrent().getSession().getAttribute("isConnected") == false) {
 			UI.getCurrent().getNavigator().navigateTo("login");
+		} else {
+		
+			setMargin(true);
+			headerLayout = new HeaderLayout();
+			addComponent(headerLayout);
+			bodyLayout = new BodyLayout();
+			addComponent(bodyLayout);
+			footerLayout = new FooterLayout();
+			addComponent(footerLayout);
 		}
+		
 
 	}
 
@@ -45,7 +47,7 @@ public class PageLayout extends VerticalLayout implements View{
 	public void enter(ViewChangeEvent event) {
 		if ((Boolean) UI.getCurrent().getSession().getAttribute("isConnected") == false) {
 			UI.getCurrent().getNavigator().navigateTo("login");
-		}
+		} 
 		Notification.show("ViewChangeEvent event");
 		
 	}

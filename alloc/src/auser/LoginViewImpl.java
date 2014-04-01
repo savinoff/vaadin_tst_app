@@ -57,7 +57,7 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 		
 		subWindow.center();
 		//subWindow.setClosable(false);
-		subWindow.setDraggable(false);
+		//subWindow.setDraggable(false);
 		subWindow.setResizable(false);
 		subWindow.setHeight("150px");
 		subWindow.setWidth("350px");
@@ -76,10 +76,7 @@ public class LoginViewImpl extends VerticalLayout implements LoginView{
 	
 	@Override
 	public void enter (ViewChangeListener.ViewChangeEvent event) {
-		if ((Boolean) UI.getCurrent().getSession().getAttribute("isConnected") == false) {
-			init();
-		}
-		UI.getCurrent().getSession().setAttribute("isConnected", true);
+
 	}
 	@Override
 	public Button getBtnLogin () {
