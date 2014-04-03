@@ -1,5 +1,6 @@
 package com.spc.alloc;
 
+
 import auser.LoginPresenter;
 import auser.LoginView;
 import auser.LoginViewImpl;
@@ -54,5 +55,6 @@ public class AllocUI extends UI {
 	public Navigator getNavigator() {
 		return navigator;
 	}
+	
 
 }
