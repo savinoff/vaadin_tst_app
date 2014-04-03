@@ -39,9 +39,8 @@
 			rev="&vaadin.version;" conf="widgetset-compile->default" />
 			
 		<!-- Adding JPAContainer-->
-		<dependency org="com.vaadin.addon" name="jpacontainer" rev="3.1.1" />
-		<!-- 
-		<ibiblio name="vaadin-addons" usepoms="true" m2compatible="true" root="http://maven.vaadin.com/vaadin-addons" />
-		-->
+		<!--<dependency org="com.vaadin.addon" name="jpacontainer" rev="3.1.1" />-->
+		<!-- Adding javax.persistence -->
+		<dependency org="org.eclipse.persistence" name="javax.persistence" rev="2.0.0" />
 	</dependencies>
 </ivy-module>
